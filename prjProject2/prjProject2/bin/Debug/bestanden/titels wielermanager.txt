@@ -1,0 +1,6 @@
+Positie
+Renner
+Punten
+Punten Totaal
+Waarde
+Punten Totaal/Waarde

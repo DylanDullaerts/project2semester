@@ -79,6 +79,12 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmPloeg.Designer.vb">
+      <DependentUpon>frmPloeg.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmPloeg.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmToevoegen.Designer.vb">
       <DependentUpon>frmToevoegen.vb</DependentUpon>
     </Compile>
@@ -89,6 +95,12 @@
       <DependentUpon>frmUitslagKoers.vb</DependentUpon>
     </Compile>
     <Compile Include="frmUitslagKoers.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmWielermanager.Designer.vb">
+      <DependentUpon>frmWielermanager.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmWielermanager.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="mdAlgemeen.vb" />
@@ -113,11 +125,17 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmPloeg.resx">
+      <DependentUpon>frmPloeg.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmToevoegen.resx">
       <DependentUpon>frmToevoegen.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUitslagKoers.resx">
       <DependentUpon>frmUitslagKoers.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmWielermanager.resx">
+      <DependentUpon>frmWielermanager.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

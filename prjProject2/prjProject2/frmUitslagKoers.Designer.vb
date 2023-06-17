@@ -27,7 +27,9 @@ Partial Class frmUitslagKoers
         Me.mnMenuStrip = New System.Windows.Forms.MenuStrip()
         Me.mnUitslag = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnToevoegen = New System.Windows.Forms.ToolStripMenuItem()
+        Me.dgvUitslagKoers = New System.Windows.Forms.DataGridView()
         Me.mnMenuStrip.SuspendLayout()
+        CType(Me.dgvUitslagKoers, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnTerug
@@ -70,11 +72,21 @@ Partial Class frmUitslagKoers
         Me.mnToevoegen.Size = New System.Drawing.Size(151, 24)
         Me.mnToevoegen.Text = "Toevoegen"
         '
+        'dgvUitslagKoers
+        '
+        Me.dgvUitslagKoers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvUitslagKoers.Location = New System.Drawing.Point(15, 31)
+        Me.dgvUitslagKoers.Name = "dgvUitslagKoers"
+        Me.dgvUitslagKoers.RowTemplate.Height = 24
+        Me.dgvUitslagKoers.Size = New System.Drawing.Size(909, 620)
+        Me.dgvUitslagKoers.TabIndex = 3
+        '
         'frmUitslagKoers
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1173, 715)
+        Me.Controls.Add(Me.dgvUitslagKoers)
         Me.Controls.Add(Me.lblBoodschap)
         Me.Controls.Add(Me.btnTerug)
         Me.Controls.Add(Me.mnMenuStrip)
@@ -83,6 +95,7 @@ Partial Class frmUitslagKoers
         Me.Text = "frmUitslagKoers"
         Me.mnMenuStrip.ResumeLayout(False)
         Me.mnMenuStrip.PerformLayout()
+        CType(Me.dgvUitslagKoers, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -92,4 +105,5 @@ Partial Class frmUitslagKoers
     Friend WithEvents mnMenuStrip As System.Windows.Forms.MenuStrip
     Friend WithEvents mnUitslag As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents mnToevoegen As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents dgvUitslagKoers As System.Windows.Forms.DataGridView
 End Class

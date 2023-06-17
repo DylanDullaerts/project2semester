@@ -27,12 +27,11 @@ Partial Class frmStart
         Me.mnMenu = New System.Windows.Forms.MenuStrip()
         Me.mnPloegen = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnWorldTourPloeg = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmbWorldTourPloegen = New System.Windows.Forms.ToolStripComboBox()
         Me.mnProContinentaalPloeg = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmbProContinentaalPloegen = New System.Windows.Forms.ToolStripComboBox()
         Me.mnContinentaalPloeg = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnWedstrijden = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnWorldTourWedstrijden = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnMonumenten = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnEendagskoersenWT = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnRondesWT = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnUCIPro = New System.Windows.Forms.ToolStripMenuItem()
@@ -40,7 +39,10 @@ Partial Class frmStart
         Me.mn12 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnKalender = New System.Windows.Forms.ToolStripMenuItem()
-        Me.mnParijsRoubaix = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnWielermanager = New System.Windows.Forms.ToolStripMenuItem()
+        Me.lstbOverzicht = New System.Windows.Forms.ListBox()
+        Me.mn1Pro = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnEuropeTour = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnMenu.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -64,7 +66,7 @@ Partial Class frmStart
         '
         'mnMenu
         '
-        Me.mnMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnPloegen, Me.mnWedstrijden, Me.mnKalender})
+        Me.mnMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnPloegen, Me.mnWedstrijden, Me.mnKalender, Me.mnWielermanager})
         Me.mnMenu.Location = New System.Drawing.Point(0, 0)
         Me.mnMenu.Name = "mnMenu"
         Me.mnMenu.Size = New System.Drawing.Size(1145, 28)
@@ -80,27 +82,15 @@ Partial Class frmStart
         '
         'mnWorldTourPloeg
         '
-        Me.mnWorldTourPloeg.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmbWorldTourPloegen})
         Me.mnWorldTourPloeg.Name = "mnWorldTourPloeg"
         Me.mnWorldTourPloeg.Size = New System.Drawing.Size(188, 24)
         Me.mnWorldTourPloeg.Text = "WorldTour"
         '
-        'cmbWorldTourPloegen
-        '
-        Me.cmbWorldTourPloegen.Name = "cmbWorldTourPloegen"
-        Me.cmbWorldTourPloegen.Size = New System.Drawing.Size(121, 28)
-        '
         'mnProContinentaalPloeg
         '
-        Me.mnProContinentaalPloeg.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmbProContinentaalPloegen})
         Me.mnProContinentaalPloeg.Name = "mnProContinentaalPloeg"
         Me.mnProContinentaalPloeg.Size = New System.Drawing.Size(188, 24)
         Me.mnProContinentaalPloeg.Text = "Pro Continentaal"
-        '
-        'cmbProContinentaalPloegen
-        '
-        Me.cmbProContinentaalPloegen.Name = "cmbProContinentaalPloegen"
-        Me.cmbProContinentaalPloegen.Size = New System.Drawing.Size(121, 28)
         '
         'mnContinentaalPloeg
         '
@@ -117,14 +107,19 @@ Partial Class frmStart
         '
         'mnWorldTourWedstrijden
         '
-        Me.mnWorldTourWedstrijden.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnEendagskoersenWT, Me.mnRondesWT})
+        Me.mnWorldTourWedstrijden.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnMonumenten, Me.mnEendagskoersenWT, Me.mnRondesWT})
         Me.mnWorldTourWedstrijden.Name = "mnWorldTourWedstrijden"
         Me.mnWorldTourWedstrijden.Size = New System.Drawing.Size(152, 24)
         Me.mnWorldTourWedstrijden.Text = "WorldTour"
         '
+        'mnMonumenten
+        '
+        Me.mnMonumenten.Name = "mnMonumenten"
+        Me.mnMonumenten.Size = New System.Drawing.Size(185, 24)
+        Me.mnMonumenten.Text = "Monumenten"
+        '
         'mnEendagskoersenWT
         '
-        Me.mnEendagskoersenWT.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnParijsRoubaix})
         Me.mnEendagskoersenWT.Name = "mnEendagskoersenWT"
         Me.mnEendagskoersenWT.Size = New System.Drawing.Size(185, 24)
         Me.mnEendagskoersenWT.Text = "Eéndagskoersen"
@@ -137,12 +132,14 @@ Partial Class frmStart
         '
         'mnUCIPro
         '
+        Me.mnUCIPro.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mn1Pro})
         Me.mnUCIPro.Name = "mnUCIPro"
         Me.mnUCIPro.Size = New System.Drawing.Size(152, 24)
         Me.mnUCIPro.Text = "UCI Pro"
         '
         'mn11
         '
+        Me.mn11.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnEuropeTour})
         Me.mn11.Name = "mn11"
         Me.mn11.Size = New System.Drawing.Size(152, 24)
         Me.mn11.Text = "1.1"
@@ -165,17 +162,39 @@ Partial Class frmStart
         Me.mnKalender.Size = New System.Drawing.Size(80, 24)
         Me.mnKalender.Text = "Kalender"
         '
-        'mnParijsRoubaix
+        'mnWielermanager
         '
-        Me.mnParijsRoubaix.Name = "mnParijsRoubaix"
-        Me.mnParijsRoubaix.Size = New System.Drawing.Size(172, 24)
-        Me.mnParijsRoubaix.Text = "Parijs-Roubaix"
+        Me.mnWielermanager.Name = "mnWielermanager"
+        Me.mnWielermanager.Size = New System.Drawing.Size(173, 24)
+        Me.mnWielermanager.Text = "Sporza Wielermanager"
+        '
+        'lstbOverzicht
+        '
+        Me.lstbOverzicht.FormattingEnabled = True
+        Me.lstbOverzicht.ItemHeight = 16
+        Me.lstbOverzicht.Location = New System.Drawing.Point(785, 47)
+        Me.lstbOverzicht.Name = "lstbOverzicht"
+        Me.lstbOverzicht.Size = New System.Drawing.Size(329, 516)
+        Me.lstbOverzicht.TabIndex = 3
+        '
+        'mn1Pro
+        '
+        Me.mn1Pro.Name = "mn1Pro"
+        Me.mn1Pro.Size = New System.Drawing.Size(152, 24)
+        Me.mn1Pro.Text = "1.Pro"
+        '
+        'mnEuropeTour
+        '
+        Me.mnEuropeTour.Name = "mnEuropeTour"
+        Me.mnEuropeTour.Size = New System.Drawing.Size(158, 24)
+        Me.mnEuropeTour.Text = "Europe Tour"
         '
         'frmStart
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1145, 693)
+        Me.Controls.Add(Me.lstbOverzicht)
         Me.Controls.Add(Me.lblBoodschap)
         Me.Controls.Add(Me.btnStop)
         Me.Controls.Add(Me.mnMenu)
@@ -197,15 +216,17 @@ Partial Class frmStart
     Friend WithEvents mnContinentaalPloeg As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents mnWedstrijden As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents mnWorldTourWedstrijden As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents mnUCIPro As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents mnEendagskoersenWT As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents mnRondesWT As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents mn11 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents mn12 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents cmbWorldTourPloegen As System.Windows.Forms.ToolStripComboBox
     Friend WithEvents mnKalender As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents cmbProContinentaalPloegen As System.Windows.Forms.ToolStripComboBox
-    Friend WithEvents mnParijsRoubaix As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents lstbOverzicht As System.Windows.Forms.ListBox
+    Friend WithEvents mnWielermanager As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents mnMonumenten As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents mn1Pro As System.Windows.Forms.ToolStripMenuItem
+    Private WithEvents mnUCIPro As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents mnEuropeTour As System.Windows.Forms.ToolStripMenuItem
 
 End Class

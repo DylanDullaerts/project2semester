@@ -9,3 +9,5 @@ C:\Users\dylan\Programmeren\programmeren 2\Project 2e semester\prjProject2\prjPr
 C:\Users\dylan\Programmeren\programmeren 2\Project 2e semester\prjProject2\prjProject2\obj\x86\Debug\prjProject2.pdb
 C:\Users\dylan\Programmeren\programmeren 2\Project 2e semester\prjProject2\prjProject2\obj\x86\Debug\prjProject2.frmUitslagKoers.resources
 C:\Users\dylan\Programmeren\programmeren 2\Project 2e semester\prjProject2\prjProject2\obj\x86\Debug\prjProject2.frmToevoegen.resources
+C:\Users\dylan\Programmeren\programmeren 2\Project 2e semester\prjProject2\prjProject2\obj\x86\Debug\prjProject2.frmPloeg.resources
+C:\Users\dylan\Programmeren\programmeren 2\Project 2e semester\prjProject2\prjProject2\obj\x86\Debug\prjProject2.frmWielermanager.resources

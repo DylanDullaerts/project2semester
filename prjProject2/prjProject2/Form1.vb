@@ -6,6 +6,7 @@ Imports System.Windows.Forms
 Public Class frmStart
     'Dim intcstMarge As Integer = 10
     'Dim intcstWidthButton As Integer = 20
+    Dim strZoekopdracht As String
 
     Private Sub btnStop_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnStop.Click
         Reset()
@@ -20,13 +21,16 @@ Public Class frmStart
         mnContinentaalPloeg.Enabled = False
         mnContinentaalPloeg.Visible = False
         'Hier voeg ik de WorldTour-ploegen toe aan de combobox in de menu van ploegen.
-        Call voeg_worldtourploegen_toe()
+        'Call voeg_worldtourploegen_toe()
         'Hier voeg ik de ProContinentale ploegen toe aan de combobox in de menu van ploegen.
-        Call voeg_procontinentaalploegen_toe()
+        'Call voeg_procontinentaalploegen_toe()
         'Dit is een sub waar ik bepaalde controls toevoeg adhv code.
         Call voeg_controls_toe()
         Call titels_initialiseren()
+        lstbOverzicht.Visible = False
+
     End Sub
+
     Sub titels_initialiseren()
         Dim intFree, intTeller As Integer
         Dim strBestand As String
@@ -86,7 +90,7 @@ Public Class frmStart
 
 
         'De afbeelding laden in een variabele
-        Dim imgVergrootglas As Image = Image.FromFile("C:\Users\dylan\Programmeren\programmeren 2\Project 2e semester\prjProject2\prjProject2\bin\Debug\bestanden\controls\vergrootglas.png")
+        Dim imgVergrootglas As Image = Image.FromFile(Application.StartupPath & "\bestanden\controls\vergrootglas.png")
 
         'Hier maak ik een ImageList om de afbeelding in op te slaan
         Dim imageList As New ImageList()
@@ -109,19 +113,145 @@ Public Class frmStart
 
     End Sub
 
-    Sub voeg_procontinentaalploegen_toe()
+    'Sub voeg_procontinentaalploegen_toe()
+    '    Dim intFree As Integer
+    '    Dim strBestand, strLijn As String
+
+    '    intFree = FreeFile()
+    '    strBestand = Application.StartupPath & "\bestanden\ploegen\procontinentaalploegen.txt"
+    '    cmbProContinentaalPloegen.Items.Clear()
+
+    '    Try
+    '        FileOpen(intFree, strBestand, OpenMode.Input)
+    '        While Not EOF(intFree)
+    '            strLijn = LineInput(intFree)
+    '            cmbProContinentaalPloegen.Items.Add(strLijn)
+    '        End While
+    '    Catch ex As Exception
+    '        lblBoodschap.Text = ex.Message
+    '    End Try
+
+    '    FileClose(intFree)
+
+    'End Sub
+    'Sub voeg_worldtourploegen_toe()
+    '    Dim intFree As Integer
+    '    Dim strBestand, strLijn As String
+
+    '    intFree = FreeFile()
+    '    strBestand = Application.StartupPath & "\bestanden\ploegen\worldtourploegen2.txt"
+
+
+    '    Try
+    '        FileOpen(intFree, strBestand, OpenMode.Input)
+    '        While Not EOF(intFree)
+    '            strLijn = LineInput(intFree)
+    '            lstbOverzicht.Items.Add(strLijn)
+    '        End While
+    '    Catch ex As Exception
+    '        lblBoodschap.Text = ex.Message
+    '    End Try
+
+    '    FileClose(intFree)
+
+
+    'End Sub
+
+
+    Private Sub mnEendagskoersenWT_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnEendagskoersenWT.Click
         Dim intFree As Integer
         Dim strBestand, strLijn As String
+
+        lstbOverzicht.Visible = True
+        lstbOverzicht.Items.Clear()
+        strZoekopdracht = "Koers"
+
+
+        intFree = FreeFile()
+        strBestand = Application.StartupPath & "\bestanden\koersen\Eéndagskoersen WT.txt"
+
+        Try
+            FileOpen(intFree, strBestand, OpenMode.Input)
+            While Not EOF(intFree)
+                strLijn = LineInput(intFree)
+                lstbOverzicht.Items.Add(strLijn)
+            End While
+        Catch ex As Exception
+            lblBoodschap.Text = ex.Message
+        End Try
+
+        FileClose(intFree)
+
+    End Sub
+
+    Private Sub lstbOverzicht_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lstbOverzicht.SelectedIndexChanged
+
+        Select Case strZoekopdracht
+            Case "Koers"
+                strKoers = lstbOverzicht.SelectedItem
+                Dim frmUitslagKoers1 As New frmUitslagKoers
+                frmUitslagKoers1.ShowDialog()
+            Case "Ploeg"
+                strPloeg = lstbOverzicht.SelectedItem
+                Dim frmPloeg1 As New frmPloeg
+                frmPloeg1.ShowDialog()
+            Case "Wielermanager"
+                strManager = lstbOverzicht.SelectedItem
+                If strManager = "Voorjaar" Then
+                    strManager = "Sporza Wieler"
+                End If
+                Dim frmWielermanager1 As New frmWielermanager
+                frmWielermanager1.ShowDialog()
+        End Select
+
+
+
+    End Sub
+
+    Private Sub mnWorldTourPloeg_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnWorldTourPloeg.Click
+
+        Dim intFree As Integer
+        Dim strBestand, strLijn As String
+
+        lstbOverzicht.Visible = True
+        lstbOverzicht.Items.Clear()
+        strZoekopdracht = "Ploeg"
+
+
+        intFree = FreeFile()
+        strBestand = Application.StartupPath & "\bestanden\ploegen\worldtourploegen.txt"
+
+        Try
+            FileOpen(intFree, strBestand, OpenMode.Input)
+            While Not EOF(intFree)
+                strLijn = LineInput(intFree)
+                lstbOverzicht.Items.Add(strLijn)
+            End While
+        Catch ex As Exception
+            lblBoodschap.Text = ex.Message
+        End Try
+
+        FileClose(intFree)
+
+
+    End Sub
+
+    Private Sub mnProContinentaalPloeg_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnProContinentaalPloeg.Click
+        Dim intFree As Integer
+        Dim strBestand, strLijn As String
+
+        lstbOverzicht.Visible = True
+        lstbOverzicht.Items.Clear()
+
 
         intFree = FreeFile()
         strBestand = Application.StartupPath & "\bestanden\ploegen\procontinentaalploegen.txt"
-        cmbProContinentaalPloegen.Items.Clear()
 
         Try
             FileOpen(intFree, strBestand, OpenMode.Input)
             While Not EOF(intFree)
                 strLijn = LineInput(intFree)
-                cmbProContinentaalPloegen.Items.Add(strLijn)
+                lstbOverzicht.Items.Add(strLijn)
             End While
         Catch ex As Exception
             lblBoodschap.Text = ex.Message
@@ -130,36 +260,91 @@ Public Class frmStart
         FileClose(intFree)
 
     End Sub
-    Sub voeg_worldtourploegen_toe()
+
+    Private Sub mnWielermanager_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnWielermanager.Click
+        lstbOverzicht.Visible = True
+        lstbOverzicht.Items.Clear()
+
+        lstbOverzicht.Items.Add("Voorjaar")
+        lstbOverzicht.Items.Add("Giro")
+        lstbOverzicht.Items.Add("Tour")
+
+        strZoekopdracht = "Wielermanager"
+
+    End Sub
+
+    Private Sub mnMonumenten_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnMonumenten.Click
         Dim intFree As Integer
         Dim strBestand, strLijn As String
 
+        lstbOverzicht.Visible = True
+        lstbOverzicht.Items.Clear()
+        strZoekopdracht = "Koers"
+
+
         intFree = FreeFile()
-        strBestand = Application.StartupPath & "\bestanden\ploegen\worldtourploegen2.txt"
-        cmbWorldTourPloegen.Items.Clear()
+        strBestand = Application.StartupPath & "\bestanden\koersen\Monumenten.txt"
 
         Try
             FileOpen(intFree, strBestand, OpenMode.Input)
             While Not EOF(intFree)
                 strLijn = LineInput(intFree)
-                cmbWorldTourPloegen.Items.Add(strLijn)
+                lstbOverzicht.Items.Add(strLijn)
             End While
         Catch ex As Exception
             lblBoodschap.Text = ex.Message
         End Try
 
         FileClose(intFree)
-
-
     End Sub
 
-    Private Sub mnParijsRoubaix_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnParijsRoubaix.Click
+    Private Sub mn1Pro_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mn1Pro.Click
+        Dim intFree As Integer
+        Dim strBestand, strLijn As String
 
-        strKoers = "Parijs-Roubaix"
+        lstbOverzicht.Visible = True
+        lstbOverzicht.Items.Clear()
+        strZoekopdracht = "Koers"
 
-        Dim frmUitslagKoers1 As New frmUitslagKoers
-        frmUitslagKoers1.ShowDialog()
+
+        intFree = FreeFile()
+        strBestand = Application.StartupPath & "\bestanden\koersen\Eéndagskoersen 1.Pro.txt"
+
+        Try
+            FileOpen(intFree, strBestand, OpenMode.Input)
+            While Not EOF(intFree)
+                strLijn = LineInput(intFree)
+                lstbOverzicht.Items.Add(strLijn)
+            End While
+        Catch ex As Exception
+            lblBoodschap.Text = ex.Message
+        End Try
+
+        FileClose(intFree)
+    End Sub
+
+    Private Sub mnEuropeTour_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnEuropeTour.Click
+        Dim intFree As Integer
+        Dim strBestand, strLijn As String
+
+        lstbOverzicht.Visible = True
+        lstbOverzicht.Items.Clear()
+        strZoekopdracht = "Koers"
 
 
+        intFree = FreeFile()
+        strBestand = Application.StartupPath & "\bestanden\koersen\Eéndagskoersen 1.1 Europe Tour.txt"
+
+        Try
+            FileOpen(intFree, strBestand, OpenMode.Input)
+            While Not EOF(intFree)
+                strLijn = LineInput(intFree)
+                lstbOverzicht.Items.Add(strLijn)
+            End While
+        Catch ex As Exception
+            lblBoodschap.Text = ex.Message
+        End Try
+
+        FileClose(intFree)
     End Sub
 End Class

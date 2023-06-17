@@ -1,0 +1,18 @@
+Omloop Het Nieuwsblad;WT
+Kuurne-Brussel-Kuurne;nWT
+Le Samyn;nWT
+Strade Bianche;WT
+Danilith Nokere Koerse;nWT
+Bredene Koksijde Classic;nWT
+Milano-Sanremo;M
+Classic Brugge-De Panne;WT
+E3 Saxo Classic;WT
+Gent-Wevelgem in Flanders Fields;WT
+Dwars door Vlaanderen;WT
+Ronde van Vlaanderen;M
+Scheldeprijs;nWT
+Paris-Roubaix;M
+De Brabantse Pijl;nWT
+Amstel Gold Race;WT
+La Flèche Wallone;WT
+Liège-Bastogne-Liège;M

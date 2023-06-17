@@ -1,0 +1,12 @@
+Zet voorgaande lijst om in het VeloFlow formaat welke moet voldoen aan de volgende regels.
+
+De uitslag bevat de renners in volgorde van hun plaats in de race.
+Elke renner wordt weergegeven op een aparte regel.
+De informatie van elke renner is verdeeld over verschillende kolommen, gescheiden door een ';'.
+De kolommen bevatten de volgende informatie: positie, rennersnaam (familienaam gevolgd door voornaam), teamnaam en tijd(sverschil). Niks meer, niks minder.
+De punten die in de lijst voorkomen heb ik niet nodig en mag je laten vallen.
+Familienamen hebben alleen een hoofdletter bij de eerste letter, de rest van de letters is in kleine letters.
+Indien de tijd(aanduiding) ',,' is of er geen tijd vermeld is, mag je een cel maken die dezelfde tijd heeft als de voorgaande renner.
+Elke regel eindigt met een ';'.
+Wanneer ik niet begin met de eerste renner hoef je er zelf geen toe te voegen.
+Bij een renner met 'DNF' mag je dat invullen als positie en als tijdsverschil gewoon een lege cel nemen. 	
